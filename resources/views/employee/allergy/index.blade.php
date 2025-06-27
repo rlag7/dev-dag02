@@ -28,8 +28,8 @@
                 <td class="p-4">{{ $allergy->description }}</td>
                 <td class="p-4">{{ $allergy->risk }}</td>
                 <td class="p-4 flex justify-center space-x-2">
-                    <a href="{{ route('admin.allergy.show', $allergy) }}" class="text-gray-600 hover:text-black">View</a>
-                    <a href="{{ route('admin.allergy.edit', $allergy) }}" class="text-blue-600 hover:underline">Edit</a>
+                    <a href="{{ route('employee.allergy.show', $allergy) }}" class="text-gray-600 hover:text-black">View</a>
+                    <a href="{{ route('employee.allergy.edit', $allergy) }}" class="text-blue-600 hover:underline">Edit</a>
                     <form method="POST" action="{{ route('employee.allergy.destroy', $allergy) }}"
                           onsubmit="return confirm('Are you sure?')" class="inline-block">
                         @csrf @method('DELETE')
