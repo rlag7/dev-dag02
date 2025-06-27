@@ -20,6 +20,7 @@ class SupplierSeeder extends Seeder
                 'company_name'    => $faker->company,
                 'address'         => $faker->address,
                 'contact_name'    => $faker->name,
+                'contact_email'   => $faker->unique()->safeEmail,
                 'phone'           => $faker->optional()->phoneNumber,
                 'supplier_type'   => $faker->randomElement($types), // ✔ ENUM waarde
                 'supplier_number' => strtoupper('SUP-' . $faker->unique()->numerify('####')), // bijv. SUP-8237
