@@ -18,11 +18,21 @@ return new class extends Migration
             $table->string('contact_name', 100);
             $table->string('contact_email', 100);
             $table->string('phone', 20)->nullable();
-            $table->dateTime('next_delivery')->nullable();
+
+            // 👇 ENUM voor type leverancier
+            $table->enum('supplier_type', [
+                'supermarkt',
+                'groothandel',
+                'boer',
+                'instelling',
+                'overheid',
+                'particulier',
+            ]);
+
+            $table->string('supplier_number', 20)->unique();
             $table->timestamps();
         });
     }
-
 
     /**
      * Reverse the migrations.

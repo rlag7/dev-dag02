@@ -12,16 +12,18 @@ class SupplierSeeder extends Seeder
     {
         $faker = Faker::create();
 
-        for ($i = 0; $i < 5; $i++) {
+        // Alleen geldige ENUM-waarden (uit de migration)
+        $types = ['supermarkt', 'groothandel', 'boer', 'instelling', 'overheid', 'particulier'];
+
+        for ($i = 0; $i < 10; $i++) {
             Supplier::create([
-                'company_name' => $faker->company,
-                'address' => $faker->address,
-                'contact_name' => $faker->name,
-                'contact_email' => $faker->unique()->safeEmail,
-                'phone' => $faker->optional()->phoneNumber,
-                'next_delivery' => $faker->optional()->dateTimeBetween('now', '+1 month'),
+                'company_name'    => $faker->company,
+                'address'         => $faker->address,
+                'contact_name'    => $faker->name,
+                'phone'           => $faker->optional()->phoneNumber,
+                'supplier_type'   => $faker->randomElement($types), // ✔ ENUM waarde
+                'supplier_number' => strtoupper('SUP-' . $faker->unique()->numerify('####')), // bijv. SUP-8237
             ]);
         }
     }
 }
-
