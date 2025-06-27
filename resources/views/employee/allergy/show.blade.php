@@ -9,6 +9,6 @@
         <div><strong>Risk:</strong> {{ $allergy->risk }}</div>
     </div>
 
-    <a href="{{ route('admin.allergy.edit', $allergy) }}"
+    <a href="{{ route('employee.allergy.edit', $allergy) }}"
        class="mt-4 inline-block text-blue-600 hover:underline">Edit Allergy</a>
 @endsection

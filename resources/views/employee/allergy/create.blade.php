@@ -3,7 +3,7 @@
 @section('dashboard-content')
     <h1 class="text-2xl font-semibold mb-4">Create New Allergy</h1>
 
-    <form method="POST" action="{{ route('admin.allergy.store') }}" class="space-y-4">
+    <form method="POST" action="{{ route('employee.allergy.store') }}" class="space-y-4">
         @csrf
 
         <div>

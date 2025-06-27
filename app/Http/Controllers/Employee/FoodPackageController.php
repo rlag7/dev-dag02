@@ -55,12 +55,12 @@ class FoodPackageController extends Controller
 
         $foodPackage->update($request->all());
 
-        return redirect()->route('employee.food-packages.index')->with('success', 'Package updated.');
+        return redirect()->route('employee.food_packages.index')->with('success', 'Package updated.');
     }
 
     public function destroy(FoodPackage $foodPackage)
     {
         $foodPackage->delete();
-        return redirect()->route('employee.food-packages.index')->with('success', 'Package deleted.');
+        return redirect()->route('employee.food_packages.index')->with('success', 'Package deleted.');
     }
 }
