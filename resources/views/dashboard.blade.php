@@ -43,7 +43,7 @@
                     {{-- Add more admin items here --}}
 
                 @elseif ($user->hasRole('employee'))
-                    <x-dashboard-link route="employee.foodpackages.index" label="Food Packages">
+                    <x-dashboard-link route="employee.food_packages.index" label="Food Packages">
                         <i class="fas fa-box-open mr-2"></i>
                     </x-dashboard-link>
                     <x-dashboard-link route="employee.allergy.index" label="Allergies">
