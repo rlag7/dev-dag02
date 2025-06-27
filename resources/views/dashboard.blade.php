@@ -46,7 +46,7 @@
                     <x-dashboard-link route="employee.foodpackages.index" label="Food Packages">
                         <i class="fas fa-box-open mr-2"></i>
                     </x-dashboard-link>
-                    <x-dashboard-link route="employee.allergies.index" label="Allergies">
+                    <x-dashboard-link route="employee.allergy.index" label="Allergies">
                         <i class="fas fa-exclamation-triangle mr-2"></i>
                     </x-dashboard-link>
                     <x-dashboard-link route="employee.customers.index" label="Customers">

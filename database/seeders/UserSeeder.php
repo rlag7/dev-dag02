@@ -24,7 +24,7 @@ class UserSeeder extends Seeder
 
 
             $user = User::firstOrCreate(
-                ['email' => $roleName . '@voedselbank.com'],
+                    ['email' => $roleName . '@voedselbank.com'],
                 [
                     'name' => ucfirst($roleName) . ' User',
                     'password' => Hash::make('password'),
