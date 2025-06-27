@@ -1,0 +1,5 @@
+@extends('dashboard')
+
+@section('dashboard-content')
+    <h1 class="text-2xl font-semibold mb-4">Dashboard</h1>
+@endsection

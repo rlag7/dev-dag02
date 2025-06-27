@@ -11,23 +11,32 @@ class UserSeeder extends Seeder
 {
     public function run(): void
     {
-        // Create roles if they don't exist
-        $adminRole = Role::firstOrCreate(['name' => 'admin']);
+
+        $roles = [
+            'admin',
+            'user',
+            'employee',
+            'volunteer',
+        ];
+
+        foreach ($roles as $roleName) {
+            $role = Role::firstOrCreate(['name' => $roleName]);
+
+
+            $user = User::firstOrCreate(
+                ['email' => $roleName . '@voedselbank.com'],
+                [
+                    'name' => ucfirst($roleName) . ' User',
+                    'password' => Hash::make('password'),
+                ]
+            );
+
+            $user->assignRole($role);
+        }
+
         $userRole = Role::firstOrCreate(['name' => 'user']);
-
-        // Create admin user
-        $admin = User::firstOrCreate(
-            ['email' => 'admin@example.com'],
-            [
-                'name' => 'Admin User',
-                'password' => Hash::make('password'),
-            ]
-        );
-        $admin->assignRole($adminRole);
-
-        // Create 5 demo users
-        User::factory()->count(5)->create()->each(function ($user) use ($userRole) {
-            $user->assignRole($userRole);
+        User::factory()->count(3)->create()->each(function ($demoUser) use ($userRole) {
+            $demoUser->assignRole($userRole);
         });
     }
 }

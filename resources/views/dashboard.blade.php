@@ -37,11 +37,27 @@
                     <x-dashboard-link route="admin.users.index" label="Users">
                         <i class="fas fa-users mr-2"></i>
                     </x-dashboard-link>
-                    {{-- Add more admin items here --}}
-                @elseif ($user->hasRole('editor'))
-                    <x-dashboard-link route="editor.posts.index" label="Posts">
-                        <i class="fas fa-file-alt mr-2"></i>
+                    <x-dashboard-link route="admin.suppliers.index" label="Suppliers">
+                        <i class="fas fa-truck mr-2"></i>
                     </x-dashboard-link>
+                    {{-- Add more admin items here --}}
+
+                @elseif ($user->hasRole('employee'))
+                    <x-dashboard-link route="employee.foodpackages.index" label="Food Packages">
+                        <i class="fas fa-box-open mr-2"></i>
+                    </x-dashboard-link>
+                    <x-dashboard-link route="employee.allergies.index" label="Allergies">
+                        <i class="fas fa-exclamation-triangle mr-2"></i>
+                    </x-dashboard-link>
+                    <x-dashboard-link route="employee.customers.index" label="Customers">
+                        <i class="fas fa-user-friends mr-2"></i>
+                    </x-dashboard-link>
+
+                @elseif ($user->hasRole('volunteer'))
+                    {{-- Optional: add volunteer links here if needed --}}
+
+                @elseif ($user->hasRole('user'))
+                    {{-- Optional: add regular user links here --}}
                 @endif
             </nav>
         </div>

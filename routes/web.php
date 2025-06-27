@@ -1,11 +1,15 @@
 <?php
 
+use App\Http\Controllers\Admin\SupplierController;
+use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Employee\AllergyController;
+use App\Http\Controllers\Employee\CustomerController;
+use App\Http\Controllers\Employee\FoodPackageController;
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
 
 Route::get('/dashboard', function () {
@@ -21,7 +25,14 @@ Route::middleware('auth')->group(function () {
 
 Route::middleware(['auth', 'role:admin'])->prefix('admin')->name('admin.')->group(function () {
     Route::resource('users', UserController::class);
+    Route::resource('suppliers', SupplierController::class);
 });
 
+
+Route::middleware(['auth', 'role:employee'])->prefix('employee')->name('employee.')->group(function () {
+    Route::resource('foodpackages', FoodPackageController::class);
+    Route::resource('allergies', AllergyController::class);
+    Route::resource('customers', CustomerController::class);
+});
 
 require __DIR__.'/auth.php';
